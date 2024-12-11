@@ -27,14 +27,18 @@ export default function GroceryList({
     <>
       <div className="list">
         <ul>
-          {sortedItems.map((item) => (
-            <GroceryItem
-              item={item}
-              key={item.id}
-              onDeleteItem={onDeleteItem}
-              onToggleItem={onToggleItem}
-            />
-          ))}
+          {sortedItems.length > 0 ? (
+            sortedItems.map((item) => (
+              <GroceryItem
+                item={item}
+                key={item.id}
+                onDeleteItem={onDeleteItem}
+                onToggleItem={onToggleItem}
+              />
+            ))
+          ) : (
+            <li>Catatan Belanjaan Kosong!</li>
+          )}
         </ul>
       </div>
       <div className="actions">
